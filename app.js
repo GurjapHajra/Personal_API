@@ -5,7 +5,7 @@ require("dotenv/config")
 const mongoose = require("mongoose");
 
 //import ROUTES
-const LogScaleRoute = require("./routes/LogScale")
+const LogScaleRoute = require("./routes/logScale")
 
 app.use(bodyParser.json())
 app.use("/LogScale",LogScaleRoute)
