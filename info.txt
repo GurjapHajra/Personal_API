@@ -1,1 +1,1 @@
-API url: https://logscaleapi.ue.r.appspot.com
+API url: https://log-scale-api.herokuapp.com/
