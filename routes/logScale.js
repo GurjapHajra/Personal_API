@@ -19,7 +19,7 @@ router.get('/', (req, res) =>{
         res.send(result).status(200);
     })
     .catch((err) =>{
-        console.log(err)
+        res.send(err)
     })
 
 });
@@ -39,7 +39,7 @@ router.post("/", (req,res) => {
         res.send(result)
     })
     .catch((err)=>{
-        res.sendStatus(err)
+        res.send(err)
     });
 })
 
