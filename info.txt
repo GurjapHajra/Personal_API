@@ -1,0 +1,1 @@
+API url: https://logscaleapi.ue.r.appspot.com
