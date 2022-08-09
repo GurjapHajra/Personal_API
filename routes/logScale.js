@@ -4,8 +4,8 @@ const router = express.Router();
 
 router.get('/', (req, res) =>{
 
-    //checks if the title in the req exsists
-    user.find({"title": {$in: req.body.title}})
+    //checks if the id in the req exsists
+    user.find({"_id": {$in: req.body.id}})
     .then((result)=>{
         if(Object.keys(result).length === 0){
             res.send("notfound")
@@ -13,8 +13,8 @@ router.get('/', (req, res) =>{
         }
     })
 
-    //retuns the object with title
-    user.find({"title":req.body.title})
+    //retuns the object with id
+    user.find({"_id":req.body.id})
     .then((result) => {
         res.send(result).status(200);
     })
