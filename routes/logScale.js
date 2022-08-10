@@ -2,10 +2,12 @@ const express = require("express");
 const user = require("../models/LogScaleSchema");
 const router = express.Router();
 
-router.get('/', (req, res) =>{
+router.get('/:id', (req, res) =>{
+
+    const {id} = req.params;
 
     //checks if the id in the req exsists
-    user.find({"_id": {$in: req.body.id}})
+    user.find({"_id": {$in: id}})
     .then((result)=>{
         if(Object.keys(result).length === 0){
             res.send("notfound")
@@ -14,7 +16,7 @@ router.get('/', (req, res) =>{
     })
 
     //retuns the object with id
-    user.find({"_id":req.body.id})
+    user.find({"_id":id})
     .then((result) => {
         res.send(result).status(200);
     })
