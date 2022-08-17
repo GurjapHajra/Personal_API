@@ -6,24 +6,27 @@ router.get('/:id', (req, res) =>{
 
     const {id} = req.params;
 
+    let exsists = true;
+
     //checks if the id in the req exsists
     user.find({"_id": {$in: id}})
     .then((result)=>{
         if(Object.keys(result).length === 0){
+            exsists = false;
             res.send("notfound")
-            return;
         }
     })
 
     //retuns the object with id
-    user.find({"_id":id})
-    .then((result) => {
-        res.send(result).status(200);
-    })
-    .catch((err) =>{
-        res.send(err)
-    })
-
+    if(exsists){
+        user.find({"_id":id})
+        .then((result) => {
+            res.send(result).status(200);
+        })
+        .catch((err) =>{
+            res.send(err)
+        })
+    }
 });
 
 router.post("/", (req,res) => {
